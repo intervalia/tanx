@@ -1,4 +1,4 @@
-//http://www.mikechambers.com/blog/2011/03/21/javascript-quadtree-implementation/
+//TODO: Add - http://www.mikechambers.com/blog/2011/03/21/javascript-quadtree-implementation/
 var KEY_ENTER = 13;
 var KEY_SPACE = 32;
 var KEY_UP = 38;
@@ -194,8 +194,11 @@ function processShots() {
     else {
       var shotDead = false;
       tanx.forEach(function(tank) {
+        if (tank.id === shot.tankId || !tank.life)
+          return;
+
         var dist = itemDistance(tank, shot);
-        if (dist < 10) {
+        if (dist < 20) {
           tank.decLife();
           shotDead = true;
           log("Tank", tank.id, "hit by tank", shot.tankId);
@@ -254,7 +257,7 @@ function tick() {
 $(document).ready(function() {
   var i, $scores = $(".scores");
   for( i = 0; i < 8; i++) {
-    var tank = new Tank(Math.random()*LIMIT,Math.random()*LIMIT,1,Math.random()*6.28318531);
+    var tank = new Tank(Math.random()*LIMIT,Math.random()*LIMIT,.5,Math.random()*6.28318531);
     tanx.push(tank);
     $scores.append('<span class="score-set" id="score'+i+'"><span class="name">name</span><span class="value">value</span></span>')
   }

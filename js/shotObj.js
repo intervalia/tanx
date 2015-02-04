@@ -1,6 +1,4 @@
 var shotsId = 0;
-var xOff = 70;
-var yOff = 25;
 
 function Shot(x, y, rotation, tankId) {
   this.id = shotsId++;
@@ -8,8 +6,8 @@ function Shot(x, y, rotation, tankId) {
   this.distance = 0;
   this.velocity = 2;
   this.rotation = rotation;
-  this.x = x + Math.cos(this.rotation) * xOff;
-  this.y = y + Math.sin(this.rotation) * yOff;
+  this.x = (x+10) + Math.cos(this.rotation) * 2;
+  this.y = (y+10) + Math.sin(this.rotation) * 2;
   var $field = $(".field");
   this.el = $('<div class="shot" id="shot'+this.id+'"></div>');
   $field.append(this.el);

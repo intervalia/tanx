@@ -1,4 +1,4 @@
-var START_SHOT_COUNT = 50;
+var START_SHOT_COUNT = 100;
 var MAX_SPEED = 1.5;
 var tanxId = 0;
 
