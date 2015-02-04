@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tanx</title>
+    <link href='http://fonts.googleapis.com/css?family=Trade+Winds' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-image: url("img/Camo.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 1px solid #999;
+        display: block;
+        font: 48px/54px 'Trade Winds', Times;
+        height: 50px;
+        left: 0;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        text-shadow: #FFF 0 0 8px;
+        top: 0;
+      }
+      footer {
+        border: 1px solid #999;
+        bottom: 0;
+        display: block;
+        height: 50px;
+        left: 0;
+        position: fixed;
+        right: 0;
+      }
+
+      .scores {
+        margin: 4px 40px 0;
+      }
+
+      .score-set {
+        border-right: 3px solid #449;
+      }
+
+      .score-set:last-child {
+        border-right: none;
+      }
+
+      .scores .name {
+        margin: 0 10px;
+      }
+
+      .scores .value {
+        font-weight: bold;
+        padding-right: 10px
+      }
+
+      .output {
+        background-color: #EEE;
+        bottom: 50px;
+        overflow: scroll;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        width: 700px;
+      }
+
+      .play-area {
+        background-color: #678;
+        bottom: 50px;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 50px;
+      }
+      .field {
+        background-color: #FFF;
+        border: 10px solid #DDD;
+        position: absolute;
+        height: 510px;
+        left: 20px;
+        old-left: 50%;
+        margin: -265px 0 0 0;
+        old-margin: -265px 0 0 -265px;
+        overflow: hidden;
+        padding: 0;
+        top: 50%;
+        width: 510px;
+      }
+
+      .tank {
+        background-color: #000;
+        height: 20px;
+        position: absolute;
+        width: 20px;
+      }
+      .tank:before {
+        background-color: #000;
+        content: '';
+        height: 4px;
+        left: 20px;
+        position: absolute;
+        top: 8px;
+        width: 7px;
+      }
+      .tank[lives="10"] {
+        background-color: rgba(0,0,0,.75);
+      }
+      .tank[lives="9"] {
+        background-color: rgba(25,0,0,.75);
+      }
+      .tank[lives="8"] {
+        background-color: rgba(51,0,0,.75);
+      }
+      .tank[lives="7"] {
+        background-color: rgba(76,0,0,.75);
+      }
+      .tank[lives="6"] {
+        background-color: rgba(102,0,0,.75);
+      }
+      .tank[lives="5"] {
+        background-color: rgba(127,0,0,.75);
+      }
+      .tank[lives="4"] {
+        background-color: rgba(153,0,0,.75);
+      }
+      .tank[lives="3"] {
+        background-color: rgba(178,0,0,.75);
+      }
+      .tank[lives="2"] {
+        background-color: rgba(204,0,0,.75);
+      }
+      .tank[lives="1"] {
+        background-color: rgba(255,0,0,.75);
+      }
+      .tank:after {
+        content: attr(num);
+        font: 10px courier;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: -18px;
+      }
+
+      .shot {
+        background-color: #F00;
+        box-shadow: 0 0 7px rgba(8,0,0,.5);
+        display: inline-block;
+        height: 2px;
+        position: absolute;
+        width: 5px;
+      }
+
+      .output {
+        padding: 0 5px;
+      }
+      .output p {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      Tanx
+    </header>
+    <section class="play-area">
+      <div class="field"></div>
+      <div class="output">
+        <h5>Log</h5>
+      </div>
+    </section>
+    <footer>
+      <button id="toggleBtn">Run</button>
+      <!--
+        <button id="decLife">Dec Lives</button>
+      -->
+      <div class="scores"></div>
+    </footer>
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/intel.js"></script>
+    <script src="js/command.js"></script>
+    <script src="js/tankObj.js"></script>
+    <script src="js/shotObj.js"></script>
+    <script src="js/tanx.js"></script>
+  </body>
+</html>
